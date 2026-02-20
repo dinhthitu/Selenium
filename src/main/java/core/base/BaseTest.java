@@ -9,7 +9,6 @@ import org.testng.annotations.BeforeMethod;
 
 public abstract class BaseTest {
 
-    protected WebDriver driver;
     protected ConfigReader config;
 
     protected abstract ConfigReader loadConfig();
@@ -17,9 +16,9 @@ public abstract class BaseTest {
     @BeforeMethod
     public void setUp() {
         config = loadConfig();
-        driver = DriverFactory.create(config.get("browser"),  config.getBoolean("headless"));
+        WebDriver driver = DriverFactory.create(config.get("browser"),  config.getBoolean("headless"));
         DriverManager.set(driver);
-        driver.get(config.get("baseUrl"));
+        DriverManager.get().get(config.get("baseUrl"));
     }
 
     @AfterMethod
