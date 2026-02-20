@@ -17,7 +17,7 @@ public abstract class BaseTest {
     @BeforeMethod
     public void setUp() {
         config = loadConfig();
-        driver = DriverFactory.create(config.get("browser"));
+        driver = DriverFactory.create(config.get("browser"),  config.getBoolean("headless"));
         DriverManager.set(driver);
         driver.get(config.get("baseUrl"));
     }

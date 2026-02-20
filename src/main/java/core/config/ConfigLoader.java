@@ -18,6 +18,10 @@ public class ConfigLoader implements ConfigReader {
 
     @Override
     public String get(String key) {
+        String sysValue = System.getProperty(key);
+        if (sysValue != null) {
+            return sysValue;
+        }
         return properties.getProperty(key);
     }
 
