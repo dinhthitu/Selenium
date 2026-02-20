@@ -17,7 +17,7 @@ public class BasePage {
 
     public BasePage(WebDriver driver) {
         this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(20));
         this.js = (JavascriptExecutor) driver;
     }
 
@@ -40,6 +40,7 @@ public class BasePage {
 
     public String getText(By locator) {
         WebElement element = findElement(locator);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
         scrollToCenter(element);
         return element.getText();
     }
@@ -54,5 +55,9 @@ public class BasePage {
         waitForVisibility(element);
         element.clear();
         element.sendKeys(text);
+    }
+
+    public void waitForInvisibility(By locator) {
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(locator));
     }
 }

@@ -23,7 +23,7 @@ public abstract class BaseTest {
     }
 
     @AfterMethod
-    void tearDown() {
+    public void tearDown() {
         DriverManager.quit();
     }
 }
