@@ -1,13 +1,8 @@
 <suite name="Execute Test">
-    <test name="Test">
-        <classes>
-            <class name="exercise1_1.Exercise1_1"/>
-        </classes>
-    </test>
 
     <test name="Test">
         <classes>
-            <class name="exercise1_2.ElementsTest"/>
+            <class name="exercise1_3.LoginTest"/>
         </classes>
     </test>
 
