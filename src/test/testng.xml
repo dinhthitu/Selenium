@@ -1,0 +1,9 @@
+<suite name="Execute Test" >
+
+    <test name="Basic Tests">
+        <classes>
+            <class name="exercise2_3.LoginTest"/>
+        </classes>
+    </test>
+
+</suite>
