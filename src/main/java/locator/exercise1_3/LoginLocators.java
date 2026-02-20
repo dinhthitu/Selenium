@@ -5,7 +5,6 @@ import org.openqa.selenium.By;
 public class LoginLocators {
 
     public static final By PRACTICE_PAGE = By.xpath("//a[contains(normalize-space(), 'Practice')]");
-//    public static final By PRACTICE_PAGE = By.linkText("Practice");
 
     public static final By TEST_LOGIN_PAGE = By.linkText("Test Login Page");
 
