@@ -24,7 +24,7 @@ public class LoginTest extends BaseTest {
 
     @BeforeMethod
     public void initPage(){
-        loginPage = new LoginPage(DriverManager.get());
+        loginPage = new LoginPage(driver);
         loginPage.openLoginPage();
     }
 
