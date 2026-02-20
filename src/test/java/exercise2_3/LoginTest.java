@@ -3,7 +3,6 @@ package exercise2_3;
 import core.base.BaseTest;
 import core.config.ConfigLoader;
 import core.config.ConfigReader;
-import core.driver.DriverManager;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pom.exercise2_3.LoginPage;
@@ -22,7 +21,7 @@ public class LoginTest extends BaseTest {
         return new ConfigLoader("exercise2_3.properties");
     }
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void initPage(){
         loginPage = new LoginPage(driver);
         loginPage.openLoginPage();
