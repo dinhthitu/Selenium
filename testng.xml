@@ -1,8 +1,37 @@
-<suite name="Execute Test">
+<suite name="Calculator Suite" parallel="tests" thread-count="3">
 
-    <test name="Test">
+    <!-- ===== BASIC TESTS ===== -->
+    <test name="Basic Calculator Tests">
+        <groups>
+            <run>
+                <include name="basic"/>
+            </run>
+        </groups>
         <classes>
-            <class name="exercise1_4.WaitStrategyTest"/>
+            <class name="exercise2_1.CalculatorTest"/>
+        </classes>
+    </test>
+
+    <!-- ===== EDGE CASES ===== -->
+    <test name="Edge Case Tests">
+        <groups>
+            <run>
+                <include name="edge"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="exercise2_1.CalculatorTest"/>
+        </classes>
+    </test>
+
+    <!-- ===== RUN SPECIFIC METHOD ===== -->
+    <test name="Only SoftAssert Test">
+        <classes>
+            <class name="exercise2_1.CalculatorTest">
+                <methods>
+                    <include name="testSoftAssertExample"/>
+                </methods>
+            </class>
         </classes>
     </test>
 
