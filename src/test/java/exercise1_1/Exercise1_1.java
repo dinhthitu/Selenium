@@ -3,6 +3,7 @@ package exercise1_1;
 import core.base.BaseTest;
 import core.config.ConfigLoader;
 import core.config.ConfigReader;
+import core.driver.DriverManager;
 import org.testng.annotations.Test;
 
 public class Exercise1_1 extends BaseTest {
@@ -14,6 +15,6 @@ public class Exercise1_1 extends BaseTest {
 
     @Test
     void openBrowser() {
-        System.out.println("Title = " + driver.getTitle());
+        System.out.println("Title = " + DriverManager.get().getTitle());
     }
 }
