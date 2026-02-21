@@ -2,8 +2,7 @@
 
     <test name="Tests">
         <classes>
-            <class name="exercise3_1.ButtonTest"/>
-            <class name="exercise3_1.TextBoxTest"/>
+            <class name="exercise3_3.FileTest"/>
         </classes>
     </test>
 
