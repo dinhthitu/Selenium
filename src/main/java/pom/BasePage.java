@@ -4,23 +4,28 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.List;
 
 public class BasePage {
 
     protected WebDriver driver;
     protected WebDriverWait wait;
     protected JavascriptExecutor js;
+    protected Actions action;
 
     public BasePage(WebDriver driver) {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(20));
         this.js = (JavascriptExecutor) driver;
+        this.action = new Actions(driver);
         PageFactory.initElements(driver, this);
+
     }
 
     protected void scrollToCenter(WebElement element) {
@@ -32,21 +37,21 @@ public class BasePage {
 
     public void waitForVisibility(WebElement element) {
         wait.until(ExpectedConditions.visibilityOf(element));
+        scrollToCenter(element);
     }
 
-    public void waitForVisibilityElementLocated(By locator) {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+    public WebElement waitForVisibilityElementLocated(By locator) {
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
 
     public WebElement waitForClickable(By locator) {
-        WebElement element = findElement(locator);
-        scrollToCenter(element);
-        return wait.until(ExpectedConditions.elementToBeClickable(element));
+        return wait.until(ExpectedConditions.elementToBeClickable(locator));
     }
 
     public String getText(By locator) {
-        WebElement element = findElement(locator);
-        wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+        WebElement element = wait.until(
+                ExpectedConditions.visibilityOfElementLocated(locator)
+        );
         scrollToCenter(element);
         return element.getText();
     }
@@ -55,9 +60,12 @@ public class BasePage {
         return driver.findElement(locator);
     }
 
+    public List<WebElement> findElements(By locator) {
+        return driver.findElements(locator);
+    }
+
     public void senKeys(By locator, String text) {
         WebElement element = findElement(locator);
-        scrollToCenter(element);
         waitForVisibility(element);
         element.clear();
         element.sendKeys(text);
