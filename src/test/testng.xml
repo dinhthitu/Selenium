@@ -2,7 +2,9 @@
 
     <test name="Tests">
         <classes>
-            <class name="exercise3_3.FileTest"/>
+            <class name="exercise3_2.MultiSelectTest"/>
+            <class name="exercise3_2.PracticePageTest"/>
+
         </classes>
     </test>
 
