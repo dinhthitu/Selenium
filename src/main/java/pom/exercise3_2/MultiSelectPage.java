@@ -14,10 +14,10 @@ public class MultiSelectPage extends BasePage {
     }
 
     public MultiSelectPage openMultiSelectPage() {
-        WebElement widgets = waitForClickable(MultiSelectLocator.WIDGETS);
+        WebElement widgets = waitForVisibilityElementLocated(MultiSelectLocator.WIDGETS);
         scrollToCenter(widgets);
         widgets.click();
-        WebElement selectMenu = waitForClickable(MultiSelectLocator.SELECT_MENU);
+        WebElement selectMenu = waitForVisibilityElementLocated(MultiSelectLocator.SELECT_MENU);
         scrollToCenter(selectMenu);
         selectMenu.click();
         return this;
