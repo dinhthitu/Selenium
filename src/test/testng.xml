@@ -2,8 +2,8 @@
 
     <test name="Tests">
         <classes>
-            <class name="exercise3_2.MultiSelectTest"/>
-            <class name="exercise3_2.PracticePageTest"/>
+            <class name="exercise3_4.CookieTest"/>
+            <class name="exercise3_4.PersistenceTest"/>
 
         </classes>
     </test>
