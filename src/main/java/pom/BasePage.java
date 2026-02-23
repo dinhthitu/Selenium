@@ -80,10 +80,10 @@ public class BasePage {
     }
 
     public void waitForReadyPage() {
-            wait.until(driver ->
-                    ((JavascriptExecutor) driver)
-                            .executeScript("return document.readyState")
-                            .equals("complete")
-            );
-        }
+        wait.until(driver ->
+                ((JavascriptExecutor) driver)
+                        .executeScript("return document.readyState")
+                        .equals("complete")
+        );
+    }
 }
