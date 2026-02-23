@@ -14,21 +14,21 @@ import java.util.List;
 
 public class BasePage {
 
-    protected WebDriver driver;
-    protected WebDriverWait wait;
-    protected JavascriptExecutor js;
-    protected Actions action;
+    public WebDriver driver;
+    public WebDriverWait wait;
+    public JavascriptExecutor js;
+    public Actions action;
 
     public BasePage(WebDriver driver) {
         this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(30));
         this.js = (JavascriptExecutor) driver;
         this.action = new Actions(driver);
         PageFactory.initElements(driver, this);
 
     }
 
-    protected void scrollToCenter(WebElement element) {
+    public void scrollToCenter(WebElement element) {
         js.executeScript(
                 "arguments[0].scrollIntoView({block:'center'});",
                 element
