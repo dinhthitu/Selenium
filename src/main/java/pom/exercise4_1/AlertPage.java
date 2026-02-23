@@ -18,6 +18,7 @@ public class AlertPage extends BasePage {
     public static final By RESULT = By.id("result");
 
     public AlertPage clickJSAlert() {
+        waitForReadyPage();
         WebElement alert = waitForVisibilityElementLocated(JS_ALERT);
         alert.click();
         wait.until(ExpectedConditions.alertIsPresent());
@@ -25,6 +26,7 @@ public class AlertPage extends BasePage {
     }
 
     public AlertPage clickJSConfirm() {
+        waitForReadyPage();
         WebElement confirmAlert = waitForVisibilityElementLocated(JS_CONFIRM);
         confirmAlert.click();
         wait.until(ExpectedConditions.alertIsPresent());
@@ -32,6 +34,7 @@ public class AlertPage extends BasePage {
     }
 
     public AlertPage clickJSPrompt() {
+        waitForReadyPage();
         WebElement promptAlert = waitForVisibilityElementLocated(JS_PROMPT);
         promptAlert.click();
         wait.until(ExpectedConditions.alertIsPresent());

@@ -78,4 +78,12 @@ public class BasePage {
     public String getCurrentUrl() {
         return driver.getCurrentUrl();
     }
+
+    public void waitForReadyPage() {
+            wait.until(driver ->
+                    ((JavascriptExecutor) driver)
+                            .executeScript("return document.readyState")
+                            .equals("complete")
+            );
+        }
 }
