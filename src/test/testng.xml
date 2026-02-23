@@ -2,9 +2,7 @@
 
     <test name="Tests">
         <classes>
-            <class name="exercise3_4.CookieTest"/>
-            <class name="exercise3_4.PersistenceTest"/>
-
+            <class name="exercise4_1.AlertTest"/>
         </classes>
     </test>
 
