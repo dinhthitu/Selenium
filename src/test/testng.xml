@@ -2,7 +2,8 @@
 
     <test name="Tests">
         <classes>
-            <class name="exercise4_1.AlertTest"/>
+            <class name="exercise4_3.ButtonPageTest"/>
+            <class name='exercise4_3.WebTablesTest'/>
         </classes>
     </test>
 
