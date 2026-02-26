@@ -16,6 +16,7 @@ public class ButtonPage extends BasePage {
     public static final By MESSAGE = By.xpath("//p[contains(@id , 'ClickMessage')]");
 
     public ButtonPage rightClickBtn() {
+        waitForReadyPage();
         WebElement rightBtn = findElement(RIGHT_BTN);
         action
                 .contextClick(rightBtn)
@@ -24,12 +25,14 @@ public class ButtonPage extends BasePage {
     }
 
     public ButtonPage clickBtn() {
+        waitForReadyPage();
         WebElement clickBtn = findElement(CLICK_BTN);
         action .click(clickBtn).perform();
         return this;
     }
 
     public String getText() {
+        waitForVisibilityElementLocated(MESSAGE);
         return getText(MESSAGE);
     }
 }
