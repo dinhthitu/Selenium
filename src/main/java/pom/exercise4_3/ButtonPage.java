@@ -5,6 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import pom.BasePage;
 
+import java.time.Duration;
+
 public class ButtonPage extends BasePage {
 
     public ButtonPage(WebDriver driver) {
@@ -19,7 +21,9 @@ public class ButtonPage extends BasePage {
         waitForReadyPage();
         WebElement rightBtn = findElement(RIGHT_BTN);
         action
-                .contextClick(rightBtn)
+                .moveToElement(rightBtn)
+                .pause(Duration.ofMillis(200))
+                .contextClick()
                 .perform();
         return this;
     }
