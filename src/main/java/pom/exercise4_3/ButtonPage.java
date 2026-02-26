@@ -5,7 +5,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import pom.BasePage;
 
-import java.time.Duration;
 
 public class ButtonPage extends BasePage {
 
@@ -13,20 +12,9 @@ public class ButtonPage extends BasePage {
         super(driver);
     }
 
-    public static final By RIGHT_BTN = By.cssSelector("div.mt-4>button:first-child");
     public static final By CLICK_BTN = By.xpath("(//div[@class = 'mt-4']/button)[2]");
     public static final By MESSAGE = By.xpath("//p[contains(@id , 'ClickMessage')]");
 
-    public ButtonPage rightClickBtn() {
-        waitForReadyPage();
-        WebElement rightBtn = findElement(RIGHT_BTN);
-        action
-                .moveToElement(rightBtn)
-                .pause(Duration.ofMillis(200))
-                .contextClick()
-                .perform();
-        return this;
-    }
 
     public ButtonPage clickBtn() {
         waitForReadyPage();

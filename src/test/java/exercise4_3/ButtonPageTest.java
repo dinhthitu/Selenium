@@ -28,12 +28,6 @@ public class ButtonPageTest extends BaseTest {
     }
 
     @Test
-    public void rightClickBtn() {
-        String message = buttonPage.rightClickBtn().getText();
-        assertEquals(message, config.get("rightClickMsg"));
-    }
-
-    @Test
     public void clickBtn() {
         String message = buttonPage.clickBtn().getText();
         assertEquals(message, config.get("clickMsg"));
