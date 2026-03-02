@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
@@ -14,14 +15,14 @@ import java.util.List;
 
 public class BasePage {
 
-    public WebDriver driver;
-    public WebDriverWait wait;
-    public JavascriptExecutor js;
-    public Actions action;
+    protected WebDriver driver;
+    protected WebDriverWait wait;
+    protected JavascriptExecutor js;
+    protected Actions action;
 
     public BasePage(WebDriver driver) {
         this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofMinutes(2));
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(20));
         this.js = (JavascriptExecutor) driver;
         this.action = new Actions(driver);
         PageFactory.initElements(driver, this);
@@ -40,12 +41,17 @@ public class BasePage {
         scrollToCenter(element);
     }
 
+    public WebElement waitForClickable(By locator) {
+        WebElement clickableBtn = wait.until(ExpectedConditions.elementToBeClickable(locator));
+        return clickableBtn;
+    }
+
     public WebElement waitForVisibilityElementLocated(By locator) {
         return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
 
-    public WebElement waitForClickable(By locator) {
-        return wait.until(ExpectedConditions.elementToBeClickable(locator));
+    public void click(By locator) {
+        wait.until(ExpectedConditions.elementToBeClickable(locator)).click();
     }
 
     public String getText(By locator) {
@@ -86,4 +92,26 @@ public class BasePage {
                         .equals("complete")
         );
     }
+
+    public void selectByVisibleText(By locator, String text) {
+        WebElement element = waitForVisibilityElementLocated(locator);
+
+        scrollToCenter(element);
+        new Select(element).selectByVisibleText(text);
+    }
+
+    public void selectByValue(By locator, String value) {
+        WebElement element = waitForVisibilityElementLocated(locator);
+        scrollToCenter(element);
+        new Select(element).selectByValue(value);
+    }
+
+    public void selectByIndex(By locator, int index) {
+        WebElement element = waitForVisibilityElementLocated(locator);
+        scrollToCenter(element);
+        new Select(element).selectByIndex(index);
+    }
+
+
+
 }
