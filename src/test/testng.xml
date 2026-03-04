@@ -1,8 +1,13 @@
-<suite name="Execute Test" >
+<suite name="Execute Test" parallel = "tests" thread-count = "2" >
 
-    <test name="Tests">
+    <test name="Advanced Test">
         <classes>
-            <class name="exercise5_1.LoginTest"/>
+            <class name="exercise5_2.LoginTestFactory"/>
+        </classes>
+    </test>
+    <test name="Basic Test">
+        <classes>
+            <class name="exercise5_2.LoginCSVTest"/>
         </classes>
     </test>
 
