@@ -10,13 +10,7 @@ public class WebTablePage extends BasePage {
     public WebTablePage(WebDriver driver) {
         super(driver);
     }
-    /**
-     url
-     modal dialog
-     text, normalize-space, contains, starts-with, position, css
-     mouse operations
 
-    **/
 
     public static final By ADD_NEW = By.xpath("//button[text() = 'Add']");
     public static final By MODAL = By.cssSelector(".modal-content");
