@@ -1,0 +1,4 @@
+username,password,expected
+student,Password123,true
+invalid,invalid,false
+student,,false
