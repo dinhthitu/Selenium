@@ -18,7 +18,7 @@ public abstract class BaseTest {
         config = loadConfig();
         WebDriver driver = DriverFactory.create(config.get("browser"),  config.getBoolean("headless"));
         DriverManager.set(driver);
-        DriverManager.get().get(config.get("baseUrl"));
+//        DriverManager.get().get(config.get("baseUrl"));
     }
 
     @AfterMethod
