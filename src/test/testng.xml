@@ -2,7 +2,10 @@
 
     <test name="Tests">
         <classes>
-            <class name="exercise5_1.LoginTest"/>
+            <class name="exercise4_2.IFrameTest"/>
+            <class name="exercise4_2.WindowTest"/>
+
+
         </classes>
     </test>
 
