@@ -25,8 +25,4 @@ public class ConfigLoader implements ConfigReader {
         return properties.getProperty(key);
     }
 
-    @Override
-    public Properties getAll() {
-        return properties;
-    }
 }

@@ -7,6 +7,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.nio.file.Paths;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class DriverFactory {
@@ -38,6 +39,13 @@ public class DriverFactory {
 
         options.setExperimentalOption("prefs", prefs);
 
+        options.addArguments("--disable-blink-features=AutomationControlled");
+        options.setExperimentalOption("excludeSwitches", List.of("enable-automation"));
+        options.setExperimentalOption("useAutomationExtension", false);
+
+// User agent thật
+        options.addArguments("--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) " +
+                "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36");
 
         return new ChromeDriver(options);
     }

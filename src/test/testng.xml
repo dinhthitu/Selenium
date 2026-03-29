@@ -1,12 +1,11 @@
-<suite name="Execute Test" >
+<suite name="Execute Test" parallel = "tests" thread-count = "2" >
 
-    <test name="Tests">
+    <test name="Accessibility Test">
         <classes>
-            <class name="exercise4_2.IFrameTest"/>
-            <class name="exercise4_2.WindowTest"/>
-
+            <class name="exercise5_3.HomePageTest"/>
 
         </classes>
     </test>
+
 
 </suite>
